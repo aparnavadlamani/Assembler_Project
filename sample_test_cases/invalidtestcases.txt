@@ -1,0 +1,20 @@
+main:
+add $s1, $s2, s3              #invalid cause "$" sigh missing
+add $zero, $s1, $s2           #invalid cause $zero can not be used
+sub $s4, $s5, $s10            #invalid cause $s10 is not a register
+addi $s7, $t0, -10000000000   #invalid cause value is too large
+lw  $t1, 100$t2)              #invalid cause bracket is missing
+sw  $t3, -100($t4)            #invalid cause value is neg
+sw $t3, 10($zero)             #invalid cause $zero register can not be used
+and $t5, $t6 $t7              #invalid cause "," is missing
+nor $zero, $t9, $v0           #invalid cause $zero register can not be used
+andi $v1, $a1, 1000000000     #invalid cause value is too large
+ori $a2, $a3, -100000000      #invalid cause value is too small
+sll $gp, $sp, -10             #invalid cause value is negative
+srl $fp, $ra, 65              #invalid cause value is greater then 31
+beq $s1, $s2, -1              #invalid cause value is neg
+bne $s1, $s2, 1000000000000   #invalid cause value is to large
+slt $1, $s2, $s3              #invalid cause rd is missing
+j 100                         invalid cause comment structure is not maintained
+jal -1                        #invalid cause value is neg
+#every program must start with main.
